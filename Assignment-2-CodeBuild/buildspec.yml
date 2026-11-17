@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - python --version
+      - pip install --upgrade pip
+  pre_build:
+    commands:
+      - pip install -r Assignment-2-CodeBuild/requirements.txt
+  build:
+    commands:
+      - cd Assignment-2-CodeBuild && python -m pytest -v
+  post_build:
+    commands:
+      - echo "Build and tests completed."
